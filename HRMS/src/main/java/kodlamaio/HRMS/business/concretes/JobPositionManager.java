@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.HRMS.business.abstracts.JobPositionService;
+import kodlamaio.HRMS.business.messages.ResultMessages;
 import kodlamaio.HRMS.core.utilities.results.DataResult;
 import kodlamaio.HRMS.core.utilities.results.Result;
 import kodlamaio.HRMS.core.utilities.results.SuccessDataResult;
@@ -31,7 +32,7 @@ public class JobPositionManager implements JobPositionService{
 	public DataResult<List<JobPosition>>  getAll() {
 		
 		
-		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll());
+		return new SuccessDataResult<List<JobPosition>>(ResultMessages.jobPositionsListed,this.jobPositionDao.findAll());
 	}
 
 	@Override
@@ -39,7 +40,7 @@ public class JobPositionManager implements JobPositionService{
 		
 		this.jobPositionDao.save(jobPosition);
 
-		return new SuccessResult("Job position added");
+		return new SuccessResult(ResultMessages.jobPositionAdded);
 		
 	}
 	
