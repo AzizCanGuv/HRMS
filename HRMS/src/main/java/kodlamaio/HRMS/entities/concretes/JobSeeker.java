@@ -24,6 +24,10 @@ public class JobSeeker {
 	private String Surname;
 	@Column(name="IdentityNumber",nullable=false,unique=true)
 	private String IdentityNumber;
+	@Column(name="birthOfYear")
+	private int birthOfYear;
+	
+	
 	public JobSeeker(int userId, String name, String surname, String identityNumber) {
 		super();
 		UserId = userId;
