@@ -5,5 +5,6 @@ public class ResultMessages {
 	public static String jobPositionAdded= "Job position Added";
 	public static String userAdded= "User Registered ";
 	public static String usersListed= "Users Listed";
+	public static String jobSeekerAdded= "JobSeeker Added";
 	
 }
