@@ -21,7 +21,7 @@ public class EmployerControllers {
 	private EmployerService employerService;
 	@Autowired
 	public EmployerControllers(EmployerService employerService) {
-		this.employerService=employerService;
+		this.employerService=employerService;  
 	}
 	
 	@GetMapping("/getAll")
