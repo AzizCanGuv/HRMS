@@ -5,36 +5,37 @@ import java.lang.annotation.Annotation;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="Employers")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Employer {
 
 	@Id
-	@GeneratedValue
-	@Column(name="UserId",nullable=false)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="user_id",nullable=false)
 	private int UserId;
-	@Column(name="CompanyName",nullable=false)
+	@Column(name="company_name",nullable=false)
 	private String CompanyName;
-	@Column(name="Website",nullable=false)
+	@Column(name="website",nullable=false)
 	private String Website;
-	@Column(name="PhoneNumber",nullable=false) 
-	private String PhoneNumber;
-	public Employer(int userId, String companyName, String website, String phoneNumber) {
-		super();
-		UserId = userId;
-		CompanyName = companyName;
-		Website = website;
-		PhoneNumber = phoneNumber;
-	}
-	public Employer() {
-		super();
-	}
+	@Column(name="email",nullable=false) 
+	private String email;
+	@Column(name="password")
+	private String password;
+	@Column(name="password_again")
+	private String passwordAgain;
+	
+	
 	
 	
 	
