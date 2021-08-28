@@ -1,6 +1,5 @@
 package kodlamaio.HRMS.entities.concretes;
 
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,31 +10,29 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="job_positions_table")
-@AllArgsConstructor
+@Table(name="cities")
 @NoArgsConstructor
+@AllArgsConstructor
 
-public class JobPosition  {
 
+public class City {
+
+	
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="id",nullable=false)
-	private int ID;
-	@Column(name="name",nullable=false)
-	private String Name;
-	@Column(name="description",nullable=false)
-	private String Description;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="city_id")
+	private int cityId;
+	
+	@Column(name="name")
+	private String name;
 	
 	
-	@OneToMany(mappedBy="jobPosition")
+	@OneToMany(mappedBy="city")
 	private List<JobAdvertisement> jobAdvertisements;
-	
-	
 }

@@ -1,12 +1,14 @@
 package kodlamaio.HRMS.entities.concretes;
 
 import java.lang.annotation.Annotation;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="Employers")
+@Table(name="employers_table")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employer {
@@ -36,7 +38,8 @@ public class Employer {
 	private String passwordAgain;
 	
 	
-	
+	@OneToMany(mappedBy="employer")
+	List<JobAdvertisement> jobAdvertisements;
 	
 	
 	

@@ -9,6 +9,9 @@ public class JobSeekerVerificationManager implements JobSeekerVerificationServic
 	
 	@Override
 	public boolean isIdNumberExists(String idNumber) {
+		
+	
+		// Mernis system give some errors 
 		return true;
 	}
 

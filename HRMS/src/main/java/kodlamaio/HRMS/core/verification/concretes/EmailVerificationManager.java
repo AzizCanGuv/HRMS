@@ -8,6 +8,9 @@ public class EmailVerificationManager implements EmailVerificationService{
 	public boolean isEmailVerified(String email) {
 		return true;
 	}
+	public boolean isEmailFormatCorrect(String email) {
+		return true;
+	}
 
 	@Override
 	public boolean isEmailExists(String email) {
