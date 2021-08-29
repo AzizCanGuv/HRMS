@@ -36,16 +36,19 @@ public class JobAdvertisementControllers {
 	public Result add(@RequestBody JobAdvertisement jobAdvertisement) {
 		return this.jobAdvertisementService.add(jobAdvertisement);
 	}
-	@GetMapping("/getbyid")
-	public DataResult<List<JobAdvertisement>> getById(int jobAdvertisementId){
-		return this.jobAdvertisementService.getById(jobAdvertisementId);
+    @GetMapping("/getbyid")
+	public DataResult<JobAdvertisement> getById(int jobAdvertisementId){
+		return this.jobAdvertisementService.findById(jobAdvertisementId);
 		
 	}
-	@GetMapping("/getbyjobadvertisementname")
-	public DataResult<List<JobAdvertisement>> getByJobAdvertisementName(String jobAdvertisementName){
-		return this.jobAdvertisementService.getByJobAdvertisementName(jobAdvertisementName);
+    
+    @GetMapping("/getallByJobAdvertisementStatusTrue")
+	public DataResult<List<JobAdvertisement>> getallByJobAdvertisementStatusTrue(){
+		return this.jobAdvertisementService.findByStatusTrue();
 		
 	}
+    
+	
 	
 
 }

@@ -14,7 +14,11 @@ public interface JobAdvertisementService {
 	
 	public Result add(JobAdvertisement jobAdvertisement);
 	
-	public DataResult getById(int jobAdvertisementId);
+	public DataResult findById(int jobAdvertisementId);
 	
-	public DataResult getByJobAdvertisementName(String jobAdvertisementName);
+	public DataResult<List<JobAdvertisement>> findByStatusTrue();
+	
+
+
 }
+
