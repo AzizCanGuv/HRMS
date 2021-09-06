@@ -31,9 +31,9 @@ public class JobPosition  {
 	@Column(name="id",nullable=false)
 	private int ID;
 	@Column(name="name",nullable=false)
-	private String Name;
+	private String name;
 	@Column(name="description",nullable=false)
-	private String Description;
+	private String description;
 	
 	
 	@OneToMany(mappedBy="jobPosition")

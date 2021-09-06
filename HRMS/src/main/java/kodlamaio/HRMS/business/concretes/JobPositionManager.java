@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kodlamaio.HRMS.business.abstracts.JobPositionService;
 import kodlamaio.HRMS.business.messages.ResultMessages;
 import kodlamaio.HRMS.core.utilities.results.DataResult;
+import kodlamaio.HRMS.core.utilities.results.ErrorResult;
 import kodlamaio.HRMS.core.utilities.results.Result;
 import kodlamaio.HRMS.core.utilities.results.SuccessDataResult;
 import kodlamaio.HRMS.core.utilities.results.SuccessResult;
@@ -37,6 +38,11 @@ public class JobPositionManager implements JobPositionService{
 
 	@Override
 	public Result add(JobPosition jobPosition) {
+		
+		if(this.jobPositionDao.findByName(jobPosition.getName()) != null) {
+			new ErrorResult("Job position is already exist");
+		}
+		
 		
 		this.jobPositionDao.save(jobPosition);
 

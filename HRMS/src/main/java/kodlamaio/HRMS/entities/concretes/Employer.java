@@ -28,11 +28,11 @@ public class Employer {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="user_id",nullable=false)
-	private int UserId;
+	private int userId;
 	@Column(name="company_name",nullable=false)
-	private String CompanyName;
+	private String companyName;
 	@Column(name="website",nullable=false)
-	private String Website;
+	private String website;
 	@Column(name="email",nullable=false) 
 	private String email;
 	@Column(name="password")

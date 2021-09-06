@@ -1,5 +1,6 @@
 package kodlamaio.HRMS.dataAccess.abstracts;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +11,9 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement,Inte
 
 	
 	
-    List<JobAdvertisement >findByStatusTrue();
-	//JobAdvertisement getByJobAdvertisementName(String jobAdvertisementName);
+    List<JobAdvertisement> findByStatusTrue();
+	//List<JobAdvertisement> findByStartDateBetween(Date startDate, Date endDate);
 	
+    
+    
 }

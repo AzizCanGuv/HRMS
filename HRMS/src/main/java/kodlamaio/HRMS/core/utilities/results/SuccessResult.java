@@ -10,7 +10,7 @@ public class SuccessResult extends Result{
 		super(true,message);
 	}
 	public SuccessResult(String message) {
-		super(true);
+		super(true,message);
 		
 	}
 }

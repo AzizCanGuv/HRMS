@@ -1,5 +1,6 @@
 package kodlamaio.HRMS.api.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlamaio.HRMS.business.abstracts.JobAdvertisementService;
@@ -42,13 +44,33 @@ public class JobAdvertisementControllers {
 		
 	}
     
-    @GetMapping("/getallByJobAdvertisementStatusTrue")
+    @GetMapping("/getallbyjobadvertisementstatustrue")
 	public DataResult<List<JobAdvertisement>> getallByJobAdvertisementStatusTrue(){
 		return this.jobAdvertisementService.findByStatusTrue();
 		
 	}
+    /*@GetMapping("/getallbydates")
+    public DataResult<List<JobAdvertisement>> findByStartDateBetween(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate){
+    	return this.jobAdvertisementService.findByStartDateBetween(startDate, endDate);
+    }*/
     
-	
-	
+    @GetMapping("/getallbydateasc")
+    public DataResult<List<JobAdvertisement>> findByStartDateSortedASC(){
+    	return this.jobAdvertisementService.getAllByDateSortedASC();
+    }
+    @GetMapping("/getallbydatedesc")
+    public DataResult<List<JobAdvertisement>> findByStartDateSortedDESC(){
+    	return this.jobAdvertisementService.getAllByDateSortedDESC();
+    }
+    
+    @PostMapping("/setstatus")
+	public Result setStatus( boolean status, int id) {
+    	return this.jobAdvertisementService.setActiveStatus(status, id);
+    	
+    }
+    @PostMapping("/changeMinMax")
+	public Result setMinMaxSalary(int id, double minimumSalary,double maximumSalary) {
+    	return this.jobAdvertisementService.setMinMaxSalary(id, minimumSalary, maximumSalary);
+    }
 
 }

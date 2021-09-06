@@ -13,7 +13,7 @@ import kodlamaio.HRMS.core.utilities.results.SuccessDataResult;
 import kodlamaio.HRMS.core.utilities.results.SuccessResult;
 import kodlamaio.HRMS.dataAccess.abstracts.EmployerDao;
 import kodlamaio.HRMS.entities.concretes.Employer;
-import kodlamaio.HRMS.entities.concretes.JobPosition;
+
 
 @Service
 public class EmployerManager implements EmployerService  {
