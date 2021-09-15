@@ -1,11 +1,13 @@
 package kodlamaio.HRMS.business.abstracts;
 
 
+
 import java.util.List;
 
 import kodlamaio.HRMS.core.utilities.results.DataResult;
 import kodlamaio.HRMS.core.utilities.results.Result;
 import kodlamaio.HRMS.entities.concretes.JobAdvertisement;
+import kodlamaio.HRMS.entities.dtos.JobAdvertisementDto;
 
 
 
@@ -28,5 +30,6 @@ public interface JobAdvertisementService {
 	public Result setMinMaxSalary(int id,double minimumSalary, double maximumSalary);
 	//public DataResult<List<JobAdvertisement>> findByStartDateBetween(Date startDate, Date endDate);
 
+	public DataResult<List<JobAdvertisementDto>> getAllJobAdvertisementDetails();
 }
 

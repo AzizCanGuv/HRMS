@@ -15,6 +15,7 @@ import kodlamaio.HRMS.core.utilities.results.SuccessDataResult;
 import kodlamaio.HRMS.core.utilities.results.SuccessResult;
 import kodlamaio.HRMS.dataAccess.abstracts.JobAdvertisementDao;
 import kodlamaio.HRMS.entities.concretes.JobAdvertisement;
+import kodlamaio.HRMS.entities.dtos.JobAdvertisementDto;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService{
@@ -50,7 +51,7 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 
 	/*@Override
 	public DataResult<List<JobAdvertisement>> findByStartDateBetween(Date startDate, Date endDate) {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findByStartDateBetween(startDate, endDate));
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAllByStartDateLessThanEqualAndEndDateGreaterThanEqual(startDate, endDate));
 	}*/
 
 	@Override
@@ -86,6 +87,13 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		this.jobAdvertisementDao.save(jobAdvertisement);
 		return new SuccessResult("Minimum and maximum salary changed");
 	}
+
+	@Override
+	public DataResult<List<JobAdvertisementDto>> getAllJobAdvertisementDetails() {
+		return new SuccessDataResult<List<JobAdvertisementDto>>(this.jobAdvertisementDao.getJobAdvertisementDetailsDto());
+	}
+
+	
 
 	
 	

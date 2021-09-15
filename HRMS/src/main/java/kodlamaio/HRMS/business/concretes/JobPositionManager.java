@@ -39,7 +39,7 @@ public class JobPositionManager implements JobPositionService{
 	@Override
 	public Result add(JobPosition jobPosition) {
 		
-		if(this.jobPositionDao.findByName(jobPosition.getName()) != null) {
+		if(this.jobPositionDao.findByJobPositionName(jobPosition.getJobPositionName()) != null) {
 			new ErrorResult("Job position is already exist");
 		}
 		

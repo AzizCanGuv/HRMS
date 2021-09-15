@@ -1,6 +1,6 @@
 package kodlamaio.HRMS.api.controllers;
 
-import java.util.Date;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +16,7 @@ import kodlamaio.HRMS.business.abstracts.JobAdvertisementService;
 import kodlamaio.HRMS.core.utilities.results.DataResult;
 import kodlamaio.HRMS.core.utilities.results.Result;
 import kodlamaio.HRMS.entities.concretes.JobAdvertisement;
+import kodlamaio.HRMS.entities.dtos.JobAdvertisementDto;
 
 
 @RestController
@@ -49,7 +50,7 @@ public class JobAdvertisementControllers {
 		return this.jobAdvertisementService.findByStatusTrue();
 		
 	}
-    /*@GetMapping("/getallbydates")
+  /*  @GetMapping("/getallbydatesbetween")
     public DataResult<List<JobAdvertisement>> findByStartDateBetween(@RequestParam("startDate") Date startDate, @RequestParam("endDate") Date endDate){
     	return this.jobAdvertisementService.findByStartDateBetween(startDate, endDate);
     }*/
@@ -71,6 +72,11 @@ public class JobAdvertisementControllers {
     @PostMapping("/changeMinMax")
 	public Result setMinMaxSalary(int id, double minimumSalary,double maximumSalary) {
     	return this.jobAdvertisementService.setMinMaxSalary(id, minimumSalary, maximumSalary);
+    }
+    
+    @GetMapping("/getalljobadvertisementdetails")
+    public DataResult<List<JobAdvertisementDto>> getAllJobAdvertisementDetails(){
+    	return this.jobAdvertisementService.getAllJobAdvertisementDetails();
     }
 
 }

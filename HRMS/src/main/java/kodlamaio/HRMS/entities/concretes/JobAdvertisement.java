@@ -30,18 +30,26 @@ public class JobAdvertisement {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="job_advertisement_id")
 	private int id;
+	
 	@Column(name="maximum_salary")
 	private double maximumSalary;
+	
 	@Column(name="minimum_salary")
 	private double minimumSalary;
+	
 	@Column(name="number_of_open_positions")
 	private String numberOfOpenPositions;
+	
 	@Column(name="status")
 	private boolean status;
+	
 	@Column(name="start_date")
 	private Date startDate;
+	
 	@Column(name="end_date")
 	private Date endDate;
+	
+	
 	
 	
 	@ManyToOne

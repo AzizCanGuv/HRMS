@@ -1,17 +1,19 @@
 package kodlamaio.HRMS.entities.concretes;
 
-import java.util.List;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sun.istack.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -20,25 +22,28 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name="cities")
+@Table(name="skills")
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdvertisements"}) 
 
-public class City {
+public class Skill {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="city_id")
-	private int cityId;
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="skill_id")
+	private int skillId;	
 	
-	@Column(name="city_name")
+	
+	@Column(name="skill_description")
 	@NotBlank
 	@NotNull
-	private String cityName;
+	private String skillDescription;
 	
 	
-	@OneToMany(mappedBy="city")
-	private List<JobAdvertisement> jobAdvertisements;
+	
+	
+	@ManyToOne()
+	@JoinColumn(name="curriculum_vitae_id")
+	private CurriculumVitae curriculumVitae;
 }
