@@ -11,38 +11,39 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.HRMS.business.abstracts.ComputerKnowledgeService;
-
+import kodlamaio.HRMS.business.abstracts.SchoolService;
 import kodlamaio.HRMS.core.utilities.results.DataResult;
 import kodlamaio.HRMS.core.utilities.results.ErrorDataResult;
 import kodlamaio.HRMS.core.utilities.results.Result;
-import kodlamaio.HRMS.entities.concretes.ComputerKnowledge;
+import kodlamaio.HRMS.entities.concretes.School;
 
 @RestController
-@RequestMapping("/api/computerknowledges")
-public class ComputerKnowledgeControllers {
+@RequestMapping("/api/schools")
+public class SchoolsController {
 
-	private ComputerKnowledgeService computerKnowledgeService;
+	private SchoolService schoolService;
+
 	@Autowired
-	public ComputerKnowledgeControllers(ComputerKnowledgeService computerKnowledgeService) {
-		this.computerKnowledgeService=computerKnowledgeService;  
-	}  
-	
-	@GetMapping("/getAll")
-	DataResult<List<ComputerKnowledge>> getAll(){
-		return this.computerKnowledgeService.getAll();
+	public SchoolsController(SchoolService schoolService) {
+		super();
+		this.schoolService = schoolService;
 	}
-	
+	@GetMapping("/getall")
+	public DataResult<List<School>> getAll() {
+		return this.schoolService.getAll();
+	}
 	@PostMapping("/add")
-	Result add (@RequestBody ComputerKnowledge computerKnowledge) {
-		return this.computerKnowledgeService.add(computerKnowledge);
+	public Result add(School school) {
+		return this.schoolService.add(school);
 	}
-	
+	@GetMapping("/getallbygraduationdatedesc")
+	public DataResult<List<School>> getAllByDateSortedDESC(){	
+		return this.schoolService.getAllByDateSortedDESC();
+		}
 	@ExceptionHandler(MethodArgumentNotValidException.class)// hata oldugunda calis
 	@ResponseStatus(HttpStatus.BAD_REQUEST)// metod calistiginda 500 hatasi ver
 	public ErrorDataResult<Object> handleValidationException(MethodArgumentNotValidException exceptions){
@@ -56,5 +57,5 @@ public class ComputerKnowledgeControllers {
 		return errors;
 	}
 	
-	
-}
+	}
+

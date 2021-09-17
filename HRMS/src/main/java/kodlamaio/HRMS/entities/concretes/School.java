@@ -59,7 +59,7 @@ public class School {
 	
 	
 	@Column(name="school_status")
-	private boolean schoolStatus;
+	private boolean isGraduated;
 	
 	
 	@Column(name="school_department_name")

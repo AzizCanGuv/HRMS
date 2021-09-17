@@ -2,22 +2,24 @@ package kodlamaio.HRMS.core.utilities.results;
 
 public class ErrorDataResult<T> extends DataResult<T> {
 
-	public ErrorDataResult( T data) {
-		super(false, data);
-		
+	
+	
+	
+	public ErrorDataResult(T data, String message) {
+		super(data, false, message);
+		// TODO Auto-generated constructor stub
 	}
-	public ErrorDataResult(String message,T data ) {
-		super(false, message,data);
-		
+	public ErrorDataResult(T data) {
+		super(data, false);
+		// TODO Auto-generated constructor stub
 	}
 	public ErrorDataResult(String message) {
-		super(false,message,null);
+		super(null,false,message);
+		// TODO Auto-generated constructor stub
 	}
 	public ErrorDataResult() {
-		super(false,null);
+		super(null,false);
+		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
 	
 }

@@ -33,7 +33,7 @@ public class JobPositionManager implements JobPositionService{
 	public DataResult<List<JobPosition>>  getAll() {
 		
 		
-		return new SuccessDataResult<List<JobPosition>>(ResultMessages.jobPositionsListed,this.jobPositionDao.findAll());
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(),ResultMessages.jobPositionsListed);
 	}
 
 	@Override

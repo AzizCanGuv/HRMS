@@ -49,10 +49,6 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findByStatusTrue());
 	}
 
-	/*@Override
-	public DataResult<List<JobAdvertisement>> findByStartDateBetween(Date startDate, Date endDate) {
-		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.findAllByStartDateLessThanEqualAndEndDateGreaterThanEqual(startDate, endDate));
-	}*/
 
 	@Override
 	public DataResult<List<JobAdvertisement>> getAllByDateSortedASC() {
