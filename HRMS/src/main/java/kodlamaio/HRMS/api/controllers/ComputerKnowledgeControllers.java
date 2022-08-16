@@ -27,6 +27,9 @@ import kodlamaio.HRMS.entities.concretes.ComputerKnowledge;
 @RequestMapping("/api/computerknowledges")
 public class ComputerKnowledgeControllers {
 
+
+
+	// somethings changed
 	private ComputerKnowledgeService computerKnowledgeService;
 	@Autowired
 	public ComputerKnowledgeControllers(ComputerKnowledgeService computerKnowledgeService) {
