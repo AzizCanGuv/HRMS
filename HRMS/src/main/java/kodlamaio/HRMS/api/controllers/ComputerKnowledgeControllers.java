@@ -28,8 +28,6 @@ import kodlamaio.HRMS.entities.concretes.ComputerKnowledge;
 public class ComputerKnowledgeControllers {
 
 
-
-	// somethings changed
 	private ComputerKnowledgeService computerKnowledgeService;
 	@Autowired
 	public ComputerKnowledgeControllers(ComputerKnowledgeService computerKnowledgeService) {
