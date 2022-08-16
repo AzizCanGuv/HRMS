@@ -28,12 +28,16 @@ import kodlamaio.HRMS.entities.concretes.ComputerKnowledge;
 public class ComputerKnowledgeControllers {
 
 
+
+
 	private ComputerKnowledgeService computerKnowledgeService;
 	@Autowired
 	public ComputerKnowledgeControllers(ComputerKnowledgeService computerKnowledgeService) {
 		this.computerKnowledgeService=computerKnowledgeService;  
 	}  
-	
+
+
+
 	@GetMapping("/getAll")
 	DataResult<List<ComputerKnowledge>> getAll(){
 		return this.computerKnowledgeService.getAll();
